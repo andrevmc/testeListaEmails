@@ -18,7 +18,8 @@
 
             <tr>
                 <th>Nome</th>
-                <th>assunto</th>
+                <th>Assunto</th>
+                <th>Quando</th>
             </tr>
 
           </thead>
@@ -28,6 +29,7 @@
               <tr class="produtos" ng-repeat="email in linha">
                 <td>{{email.nome}}</td>
                 <td>{{email.assunto}}</td>
+                <td>{{email.data_envio}}</td>
               </tr>
                   
           </tbody>

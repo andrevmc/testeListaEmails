@@ -47,7 +47,7 @@ emailApp.controller('CarrinhoController', ['$scope','$http', function($scope, $h
         	var hora = obj.getHours() < 10 ? "0" + (obj.getHours()):obj.getHours();
         	var minute = obj.getMinutes() < 10 ? "0" + (obj.getMinutes()):obj.getMinutes();
 
-        	vHourFormat = hora + "h" + minute;
+        	vHourFormat = "Hoje às " + hora + "h" + minute;
 
         	return vHourFormat;
         }

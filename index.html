@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="listaEmail">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>Lista de emails</title>
+    <link href="style.css" rel="stylesheet" />
+    <script data-semver="1.2.22" src="angular.min.js" data-require="angular.js@1.2.x"></script>
+    <script src="app.js"></script>
+  </head>
+
+  <div ng-controller="CarrinhoController">
+        <h1>{{title}}</h1>
+ 
+        <table>
+
+          <thead>
+
+            <tr>
+                <th>Nome</th>
+                <th>assunto</th>
+            </tr>
+
+          </thead>
+
+          <tbody>
+
+              <tr class="produtos" ng-repeat="email in lista">
+                <td>{{email.nome}}</td>
+                <td>{{email.assunto}}</td>
+              </tr>
+                  
+          </tbody>
+
+        </table>        
+
+    </div> 
+
+</html>

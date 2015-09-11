@@ -24,7 +24,7 @@ emailApp.controller('CarrinhoController', ['$scope','$http', function($scope, $h
     		}
     	}
 
-        $scope.lista = data;
+        $scope.linha	= data;
 
     });
 

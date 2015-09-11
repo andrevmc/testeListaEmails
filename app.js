@@ -15,6 +15,15 @@ emailApp.controller('CarrinhoController', ['$scope','$http', function($scope, $h
 
     $http.get('lista_email.json').success(function(data){
 
+    	// console.log(data);
+
+    	for (var i = 0; i < data.length ; i++){
+    		if (data[i].assunto == "" || data[i].assunto == null){
+    			data[i].assunto = "Sem assunto";
+    			// console.log (data[i]);
+    		}
+    	}
+
         $scope.lista = data;
 
     });

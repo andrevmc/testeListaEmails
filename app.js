@@ -30,8 +30,6 @@ emailApp.controller('CarrinhoController', ['$scope','$http', function($scope, $h
 
         $scope.linha = data;
 
-
-
         //FUNCTIONS
         function dateFormat(obj){
         	var ano = obj.getFullYear();
@@ -51,6 +49,10 @@ emailApp.controller('CarrinhoController', ['$scope','$http', function($scope, $h
 
         	return vHourFormat;
         }
+
+        
+          
+        
 
     });
 

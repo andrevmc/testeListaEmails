@@ -4,38 +4,81 @@
   <head>
     <meta charset="utf-8" />
     <title>Lista de emails</title>
-    <link href="style.css" rel="stylesheet" />
-    <script data-semver="1.2.22" src="angular.min.js" data-require="angular.js@1.2.x"></script>
+        
+    <!-- input Angular -->
+    <script data-semver="1.2.22" src="angular.min.js" data-require="angular.js@1.2.x"></script>    
+
+    <!-- input Data -->
     <script src="app.js"></script>
+
+    <!-- style datatable -->
+    <link rel="stylesheet" type="text/css" media="screen" href="media/css/jquery.dataTables.css"> 
+
+    <!-- jQuery -->
+    <script type="text/javascript" charset="utf8" src="media/js/jquery-1.11.3.js"></script>
+      
+    <!-- DataTables -->
+    <script type="text/javascript" charset="utf8" src="media/js/jquery.dataTables.js"></script>    
+
+    <!-- my style -->
+    <link href="style.css" rel="stylesheet" />
+
+    
+    <script type="text/javascript">
+
+      $(document).ready( function () {
+          $('#table_email').DataTable();
+      } );
+
+    </script> 
+
+  
   </head>
 
-  <div ng-controller="CarrinhoController">
-        <h1>{{title}}</h1>
- 
-        <table>
+  <body>
 
-          <thead>
+    <div ng-controller="CarrinhoController">
+
+      <h1>{{title}}</h1>
+
+      <table id="table_email" class="dataTable">
+
+        <thead>
+
+          <tr>
+              <th>Nome</th>
+              <th>Assunto</th>
+              <th>Quando</th>
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr class="produtos" ng-repeat="email in linha">
+              <td>{{email.nome}}</td>
+              <td>{{email.assunto}}</td>
+              <td>{{email.data_envio}}</td>
+            </tr>
+                
+        </tbody>
+
+         <tfoot>
 
             <tr>
-                <th>Nome</th>
-                <th>Assunto</th>
-                <th>Quando</th>
+              <td></td>
+              <td></td>
+              <td></td>
             </tr>
+                
+        </tfoot>
 
-          </thead>
 
-          <tbody>
 
-              <tr class="produtos" ng-repeat="email in linha">
-                <td>{{email.nome}}</td>
-                <td>{{email.assunto}}</td>
-                <td>{{email.data_envio}}</td>
-              </tr>
-                  
-          </tbody>
-
-        </table>        
+      </table>        
 
     </div> 
+
+  </body>
 
 </html>

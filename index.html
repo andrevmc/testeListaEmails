@@ -1,18 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="listaEmail">
 
   <head>
     <meta charset="utf-8" />
     <title>Lista de emails</title>
+        
+    <!-- input Angular -->
+    <script data-semver="1.2.22" src="angular.min.js" data-require="angular.js@1.2.x"></script>    
+
+    <!-- input Data -->
+    <script src="app.js"></script>
+
+    <!-- style datatable -->
+    <link rel="stylesheet" type="text/css" media="screen" href="media/css/jquery.dataTables.css"> 
 
     <!-- jQuery -->
     <script type="text/javascript" charset="utf8" src="media/js/jquery-1.11.3.js"></script>
       
     <!-- DataTables -->
     <script type="text/javascript" charset="utf8" src="media/js/jquery.dataTables.js"></script>    
-
-    <!-- style datatable -->
-    <link rel="stylesheet" type="text/css" media="screen" href="media/css/jquery.dataTables.css"> 
 
     <!-- my style -->
     <link href="style.css" rel="stylesheet" />
@@ -24,16 +30,16 @@
           $('#table_email').DataTable();
       } );
 
-    </script>
+    </script> 
 
   
   </head>
 
   <body>
 
-    <div>
+    <div ng-controller="CarrinhoController">
 
-      <h1>Emails</h1>
+      <h1>{{title}}</h1>
 
       <table id="table_email" class="dataTable">
 
@@ -49,11 +55,15 @@
 
         <tbody>
 
-            <!-- carrega dados -->
+            <tr class="produtos" ng-repeat="email in linha">
+              <td>{{email.nome}}</td>
+              <td>{{email.assunto}}</td>
+              <td>{{email.data_envio}}</td>
+            </tr>
                 
         </tbody>
 
-        <tfoot>
+         <tfoot>
 
             <tr>
               <td></td>
@@ -63,12 +73,11 @@
                 
         </tfoot>
 
+
+
       </table>        
 
     </div> 
-
-    <!-- input Data -->
-    <script src="app.js"></script>
 
   </body>
 

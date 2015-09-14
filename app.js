@@ -170,7 +170,7 @@ function dateFormat(obj){
     var mes = obj.getMonth() + 1 < 10 ? "0" + (obj.getMonth() + 1):obj.getMonth() + 1;
     var dia = obj.getDate() < 10 ? "0" + (obj.getDate()):obj.getDate();
 
-    vDateFormata = dia + "/" + mes + "/" + ano;
+    vDateFormata = ano + "/" + mes + "/" + dia;
 
     return vDateFormata;
 }

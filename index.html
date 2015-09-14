@@ -9,7 +9,7 @@
     <script type="text/javascript" charset="utf8" src="media/js/jquery-1.11.3.js"></script>
       
     <!-- DataTables -->
-    <script type="text/javascript" charset="utf8" src="media/js/jquery.dataTables.js"></script>    
+    <script type="text/javascript" charset="utf8" src="media/js/jquery.dataTables.js"></script> 
 
     <!-- style datatable -->
     <link rel="stylesheet" type="text/css" media="screen" href="media/css/jquery.dataTables.css"> 
@@ -19,11 +19,9 @@
 
     
     <script type="text/javascript">
-
       $(document).ready( function () {
-          $('#table_email').DataTable();
+          $('#table_email').DataTable({ "order": [[ 2, 'desc' ]]});
       } );
-
     </script>
 
   

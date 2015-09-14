@@ -39,7 +39,7 @@ var cx_emails = {
         {
             "nome": "Elisabete Beça", 
             "assunto": "Assunto I",
-            "data_envio": "Fri Sep 04 2015 17:00:58 GMT-0300 (Hora oficial do Brasil)"
+            "data_envio": "Mon Sep 14 2015 17:00:58 GMT-0300 (Hora oficial do Brasil)"
         },
         {
             "nome": "Estela Saldaña", 
@@ -54,12 +54,12 @@ var cx_emails = {
         {
             "nome": "Fabíola Rebouças", 
             "assunto": "Assunto L",
-            "data_envio": "Thu Nov 30 2014 17:44:50 GMT-0200 (Horário brasileiro de verão)"
+            "data_envio": "Mon Sep 14 2015 17:44:50 GMT-0200 (Horário brasileiro de verão)"
         },
         {
             "nome": "Feliciano Monte", 
             "assunto": "Assunto M",
-            "data_envio": "Fri Oct 15 2014 17:43:47 GMT-0300 (Hora oficial do Brasil)"
+            "data_envio": "Thu Sep 15 2015 17:43:47 GMT-0300 (Hora oficial do Brasil)"
         },
         {
             "nome": "Filomena Naves", 
@@ -99,7 +99,7 @@ var cx_emails = {
         {
             "nome": "Rosário Quintal", 
             "assunto": "Assunto U",
-            "data_envio": "Thu Nov 30 2014 17:44:50 GMT-0200 (Horário brasileiro de verão)"
+            "data_envio": "Thu Sep 15 2015 17:44:50 GMT-0200 (Horário brasileiro de verão)"
         },
         {
             "nome": "Rubim Bonilha", 
@@ -155,16 +155,13 @@ function loadingTable(){
             var data_envio = dateFormat(new Date(cx_emails.email[i].data_envio));
         }
 
-        var strHTML  = "<tr class='produtos'>" +
+        var strHTML  = "<tr>" +
                      "<td>" + nome + "</td>"+
                      "<td>" + assunto + "</td>"+
                      "<td>" + data_envio + "</td>"+
                      "</tr>";     
         arrayEmails.push(strHTML);
-    }    
-
-    // console.log(arrayEmails);    
-
+    }  
     return arrayEmails;
 }
 
@@ -188,53 +185,3 @@ function hourFormat(obj){
 }
 
 $("#table_email tbody").html(loadingTable())
-
-
-
-
-
-
-
-
-
-   //  JSON.parse('lista_email.json').success(function(data){
-
-   //  	for (var i = 0; i < data.length ; i++){
-
-   //  		if (data[i].assunto == "" || data[i].assunto == null)
-   //  			data[i].assunto = "Sem assunto";    		
-
-   //  		if (dateFormat(new Date(data[i].data_envio)) == dateFormat(new Date())){
-   //  			data[i].data_envio = hourFormat(new Date(data[i].data_envio));
-   //  		} else {
-   //  			data[i].data_envio = dateFormat(new Date(data[i].data_envio));
-   //  		}
-   //  	}
-
-   //      $scope.linha = data;
-
-   //      //FUNCTIONS
-   //      function dateFormat(obj){
-   //      	var ano = obj.getFullYear();
-			// var mes = obj.getMonth() + 1 < 10 ? "0" + (obj.getMonth() + 1):obj.getMonth() + 1;
-			// var dia = obj.getDate() < 10 ? "0" + (obj.getDate()):obj.getDate();
-
-			// vDateFormata = dia + "/" + mes + "/" + ano;
-
-			// return vDateFormata;
-   //      }
-
-   //      function hourFormat(obj){
-   //      	var hora = obj.getHours() < 10 ? "0" + (obj.getHours()):obj.getHours();
-   //      	var minute = obj.getMinutes() < 10 ? "0" + (obj.getMinutes()):obj.getMinutes();
-
-   //      	vHourFormat = "Hoje às " + hora + "h" + minute;
-
-   //      	return vHourFormat;
-   //      }
-
-        
-          
-        
-
-   //  });

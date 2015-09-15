@@ -14,17 +14,17 @@ var cx_emails = {
         {
             "nome": "Apuã Rosmaninho", 
             "assunto": "Assunto C",
-            "data_envio": "Wed Sep 09 2015 17:18:29 GMT-0300 (Hora oficial do Brasil)"
+            "data_envio": "Wed Sep 16 2015 17:18:29 GMT-0300 (Hora oficial do Brasil)"
         },
         {
             "nome": "Armanda Torcato", 
             "assunto": "Assunto D",
-            "data_envio": "Tue Sep 08 2015 17:18:29 GMT-0300 (Hora oficial do Brasil)"
+            "data_envio": "Tue Sep 16 2015 17:18:29 GMT-0300 (Hora oficial do Brasil)"
         },
         {
             "nome": "Bruna Grangeia", 
             "assunto": "Assunto F",
-            "data_envio": "Sun Sep 07 2015 08:18:29 GMT-0300 (Hora oficial do Brasil)"
+            "data_envio": "Sun Sep 17 2015 08:18:29 GMT-0300 (Hora oficial do Brasil)"
         },
         {
             "nome": "Bráulio Lobato", 
@@ -139,6 +139,8 @@ var cx_emails = {
     ]
 }
 
+loadingTable();
+
 
 function loadingTable(){
     var t = cx_emails.email.length,
@@ -147,12 +149,13 @@ function loadingTable(){
     for (var i=0; i < t; i++){
         var nome = cx_emails.email[i].nome;
         var assunto = cx_emails.email[i].assunto;
-        // var data_envio = cx_emails.email[i].data_envio;
+        //var data_envio = cx_emails.email[i].data_envio;
       
         // if (dateFormat(new Date(cx_emails.email[i].data_envio)) == dateFormat(new Date())){
         //     var data_envio = hourFormat(new Date(cx_emails.email[i].data_envio));
         // } else {
             var data_envio = dateFormat(new Date(cx_emails.email[i].data_envio));
+            console.log(data_envio);
         // }
 
         var strHTML  = "<tr>" +
@@ -162,7 +165,7 @@ function loadingTable(){
                      "</tr>";     
         arrayEmails.push(strHTML);
     }  
-    return arrayEmails;
+    $("#table_email tbody").html(arrayEmails);;
 }
 
 function dateFormat(obj){
@@ -184,4 +187,17 @@ function hourFormat(obj){
     return vHourFormat;
 }
 
-$("#table_email tbody").html(loadingTable())
+// function btnHoje(){
+//     for (var i = 0; i<$("#table_email tbody tr").length ; i++){
+//         if (!$("#table_email tbody tr").eq(i).hasClass("hoje")){
+//             $("#table_email tbody tr").eq(i).hide();
+//         }
+//     }
+// }
+
+// $(".btn").click(function () {
+//     btnHoje();
+// })
+
+
+

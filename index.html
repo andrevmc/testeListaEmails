@@ -10,78 +10,23 @@
       
     <!-- DataTables -->
     <script type="text/javascript" charset="utf8" src="media/js/jquery.dataTables.js"></script> 
-    
+    <script type="text/javascript" charset="utf8" src="media/js/dataTables.bootstrap.min.js "></script>  
+
+    <script type="text/javascript" charset="utf8" src="view.js"></script>  
 
     <!-- style datatable -->
-    <link rel="stylesheet" type="text/css" media="screen" href="media/css/jquery.dataTables.css"> 
+    <link rel="stylesheet" type="text/css" media="screen" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> 
+    <link rel="stylesheet" type="text/css" media="screen" href="media/css/dataTables.bootstrap.css"> 
 
-    <!-- my style -->
-    <link href="style.css" rel="stylesheet" />
-
-    
-    <script type="text/javascript">
-      //$(document).ready( function () {
-      //    $('#table_email').DataTable({ "order": [[ 2, 'desc' ]]});
-      //} );
-
-      $(document).ready(function() {
-        $.extend(jQuery.fn.dataTableExt.oSort, {
-          "date-pt-pre" : function(a) {
-            var x;
-            try {
-              var dateA = a.trim().split("/");
-              var day = parseInt(dateA[0], 10);
-              var month = parseInt(dateA[1], 10);
-              var year = parseInt(dateA[2], 10);
-              var date = new Date(year, month - 1, day);
-                  console.log("convertendo a data: " + date);
-              x = date.getTime();
-              // var now = new Date();
-              // if (date == now){
-              //   console.log(date.getHours());
-              // }
-
-            }
-            catch (err) {
-              x = new Date().getTime();
-            }
-            return x;
-          },
-
-          "date-pt-asc" : function(a, b) {
-            return a - b;
-          },
-
-          "date-pt-desc" : function(a, b) {
-            return b - a;
-          }
-        });
-          
-          
-        $('#table_email').dataTable({
-          "sPaginationType": "full_numbers",
-          "aoColumns": [
-            null,
-            null,
-            {"sType": "date-pt"}
-          ],
-          "order": [[ 2, 'desc' ]]
-        });
-      });
-
-
-    </script>
-
-  
   </head>
 
   <body>
 
-    <div>
+    <div class="container">
 
       <h1>Emails</h1>
 
-      <table id="table_email" class="dataTable">
+      <table id="table_email" class=" display table table-striped table-bordered">
 
         <thead>
 
@@ -99,22 +44,12 @@
                 
         </tbody>
 
-        <tfoot>
-
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-                
-        </tfoot>
-
       </table>        
 
     </div> 
 
     <!-- input Data -->
-    <script src="app.js"></script>
+    <script type="text/javascript" charset="utf8" src="app.js"></script>
 
   </body>
 

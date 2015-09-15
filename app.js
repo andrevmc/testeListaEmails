@@ -29,7 +29,7 @@ var cx_emails = {
         {
             "nome": "Bráulio Lobato", 
             "assunto": "Assunto G",
-            "data_envio": "Mon Sep 06 2015 17:18:29 GMT-0300 (Hora oficial do Brasil)"
+            "data_envio": "Mon Jan 02 2010 17:18:29 GMT-0300 (Hora oficial do Brasil)"
         },
         {
             "nome": "Donata Camello", 
@@ -99,7 +99,7 @@ var cx_emails = {
         {
             "nome": "Rosário Quintal", 
             "assunto": "Assunto U",
-            "data_envio": "Thu Sep 15 2015 17:44:50 GMT-0200 (Horário brasileiro de verão)"
+            "data_envio": "Thu Sep 15 2015 17:44:50 GMT-0200 (Hora oficial do Brasil)"
         },
         {
             "nome": "Rubim Bonilha", 
@@ -149,11 +149,11 @@ function loadingTable(){
         var assunto = cx_emails.email[i].assunto;
         // var data_envio = cx_emails.email[i].data_envio;
       
-        if (dateFormat(new Date(cx_emails.email[i].data_envio)) == dateFormat(new Date())){
-            var data_envio = hourFormat(new Date(cx_emails.email[i].data_envio));
-        } else {
+        // if (dateFormat(new Date(cx_emails.email[i].data_envio)) == dateFormat(new Date())){
+        //     var data_envio = hourFormat(new Date(cx_emails.email[i].data_envio));
+        // } else {
             var data_envio = dateFormat(new Date(cx_emails.email[i].data_envio));
-        }
+        // }
 
         var strHTML  = "<tr>" +
                      "<td>" + nome + "</td>"+
@@ -170,7 +170,7 @@ function dateFormat(obj){
     var mes = obj.getMonth() + 1 < 10 ? "0" + (obj.getMonth() + 1):obj.getMonth() + 1;
     var dia = obj.getDate() < 10 ? "0" + (obj.getDate()):obj.getDate();
 
-    vDateFormata = ano + "/" + mes + "/" + dia;
+    vDateFormata = dia + "/" + mes + "/" + ano;
 
     return vDateFormata;
 }

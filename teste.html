@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8" />
+    <title>Lista de emails</title>
+
+    <!-- jQuery -->
+    <script type="text/javascript" charset="utf8" src="media/js/jquery-1.11.3.js"></script>
+      
+    <!-- DataTables -->
+    <script type="text/javascript" charset="utf8" src="media/js/jquery.dataTables.js"></script> 
+
+    <script type="text/javascript" charset="utf8" src="jquery.dataTables_themeroller"></script>
+
+    <!-- style datatable -->
+    <link rel="stylesheet" type="text/css" media="screen" href="media/css/jquery.dataTables.css"> 
+
+    <!-- my style -->
+    <link href="style.css" rel="stylesheet" />
+
+    
+    <script type="text/javascript">
+      $(document).ready(function() {
+    $.extend(jQuery.fn.dataTableExt.oSort, {
+"date-pt-pre" : function(a) {
+var x;
+try {
+var dateA = a.trim().split("/");
+var day = parseInt(dateA[0], 10);
+var month = parseInt(dateA[1], 10);
+var year = parseInt(dateA[2], 10);
+var date = new Date(year, month - 1, day);
+    console.log("convertendo a data: " + date);
+x = date.getTime();
+}
+catch (err) {
+x = new Date().getTime();
+}
+return x;
+},
+
+"date-pt-asc" : function(a, b) {
+return a - b;
+},
+
+"date-pt-desc" : function(a, b) {
+return b - a;
+}
+});
+    
+    
+$('#example').dataTable({
+        "sPaginationType": "full_numbers",
+        "aoColumns": [
+    { "sType": "date-pt" },
+    null,
+    null,
+    {"sType" : "numeric"},
+    null
+                       ] });
+});
+    </script>
+
+  
+  </head>
+
+  <body>
+        <div class="container">
+            
+<table cellpadding="0" cellspacing="0" border="0" class="dataTable" id="example">
+    <thead>
+        <tr>
+            <th>Data</th>
+            <th>Browser</th>
+            <th>Platform(s)</th>
+            <th>Engine version</th>
+            <th>CSS grade</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>05/02/2010</td>
+            <td>Internet
+                 Explorer 4.0</td>
+            <td>Win 95+</td>
+            <td> 11</td>
+            <td>X</td>
+        </tr>
+        <tr>
+            <td>15/01/2010</td>
+            <td>Internet
+                 Explorer 4.0</td>
+            <td>Win 95+</td>
+            <td> 21</td>
+            <td>X</td>
+        </tr>
+        <tr>
+            <td>22/01/2010</td>
+            <td>Internet
+                 Explorer 4.0</td>
+            <td>Win 95+</td>
+            <td>-4</td>
+            <td>X</td>
+        </tr>
+        <tr>
+            <td>10/06/2013</td>
+            <td>Internet
+                 Explorer 4.0</td>
+            <td>Win 95+</td>
+            <td> 4</td>
+            <td>X</td>
+        </tr>
+        <tr>
+            <td>25/12/2010</td>
+            <td>Internet
+                 Explorer 4.0</td>
+            <td>Win 95+</td>
+            <td> 4</td>
+            <td>X</td>
+        </tr>
+        <tr>
+            <td>05/01/2010</td>
+            <td>Internet
+                 Explorer 4.0</td>
+            <td>Win 95+</td>
+            <td> 4</td>
+            <td>X</td>
+        </tr>
+        
+        
+    </tbody>
+</table>
+            
+        </div>
+
+          </body>
+
+</html>

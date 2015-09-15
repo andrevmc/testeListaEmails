@@ -10,6 +10,7 @@
       
     <!-- DataTables -->
     <script type="text/javascript" charset="utf8" src="media/js/jquery.dataTables.js"></script> 
+    
 
     <!-- style datatable -->
     <link rel="stylesheet" type="text/css" media="screen" href="media/css/jquery.dataTables.css"> 
@@ -19,9 +20,56 @@
 
     
     <script type="text/javascript">
-      $(document).ready( function () {
-          $('#table_email').DataTable({ "order": [[ 2, 'desc' ]]});
-      } );
+      //$(document).ready( function () {
+      //    $('#table_email').DataTable({ "order": [[ 2, 'desc' ]]});
+      //} );
+
+      $(document).ready(function() {
+        $.extend(jQuery.fn.dataTableExt.oSort, {
+          "date-pt-pre" : function(a) {
+            var x;
+            try {
+              var dateA = a.trim().split("/");
+              var day = parseInt(dateA[0], 10);
+              var month = parseInt(dateA[1], 10);
+              var year = parseInt(dateA[2], 10);
+              var date = new Date(year, month - 1, day);
+                  console.log("convertendo a data: " + date);
+              x = date.getTime();
+              // var now = new Date();
+              // if (date == now){
+              //   console.log(date.getHours());
+              // }
+
+            }
+            catch (err) {
+              x = new Date().getTime();
+            }
+            return x;
+          },
+
+          "date-pt-asc" : function(a, b) {
+            return a - b;
+          },
+
+          "date-pt-desc" : function(a, b) {
+            return b - a;
+          }
+        });
+          
+          
+        $('#table_email').dataTable({
+          "sPaginationType": "full_numbers",
+          "aoColumns": [
+            null,
+            null,
+            {"sType": "date-pt"}
+          ],
+          "order": [[ 2, 'desc' ]]
+        });
+      });
+
+
     </script>
 
   

@@ -19,7 +19,7 @@ var cx_emails = {
         {
             "nome": "Armanda Torcato", 
             "assunto": "Assunto D",
-            "data_envio": "Tue Sep 16 2015 17:18:29 GMT-0300 (Hora oficial do Brasil)"
+            "data_envio": "Tue Sep 16 2015 13:27:29 GMT-0300 (Hora oficial do Brasil)"
         },
         {
             "nome": "Bruna Grangeia", 
@@ -156,7 +156,6 @@ function loadingTable(){
                      "<td>" + nome + "</td>"+
                      "<td>" + assunto + "</td>"+
                      "<td rel=" + hourFormat(new Date(cx_emails.email[i].data_envio)) + ">" + data_envio + "</td>"+
-                     "<td>" + hora_envio + "</td>"+
                      "</tr>";
         arrayEmails.push(strHTML);
     }  
@@ -177,22 +176,7 @@ function hourFormat(obj){
     var hora = obj.getHours() < 10 ? "0" + (obj.getHours()):obj.getHours();
     var minute = obj.getMinutes() < 10 ? "0" + (obj.getMinutes()):obj.getMinutes();
 
-    vHourFormat = hora + "h" + minute;
+    vHourFormat = hora + ":" + minute;
 
     return vHourFormat;
 }
-
-// function btnHoje(){
-//     for (var i = 0; i<$("#table_email tbody tr").length ; i++){
-//         if (!$("#table_email tbody tr").eq(i).hasClass("hoje")){
-//             $("#table_email tbody tr").eq(i).hide();
-//         }
-//     }
-// }
-
-// $(".btn").click(function () {
-//     btnHoje();
-// })
-
-
-

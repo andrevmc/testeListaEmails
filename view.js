@@ -37,8 +37,7 @@ $(document).ready(function() {
     "aoColumns": [
       null,
       null,
-      {"sType": "date-pt"},
-      null
+      {"sType": "date-pt"}
     ],
     "order": [[ 2, 'asc' ]],
     "language": {

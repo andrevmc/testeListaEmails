@@ -37,7 +37,8 @@ $(document).ready(function() {
     "aoColumns": [
       null,
       null,
-      {"sType": "date-pt"}
+      {"sType": "date-pt"},
+      null
     ],
     "order": [[ 2, 'asc' ]],
     "language": {
@@ -57,7 +58,7 @@ $(document).ready(function() {
     "lengthMenu" : [[10, 20, -1], [10, 20, "All"]],
     "createdRow": function ( row, data, index ) {
       if ( data[2] == convertDate(new Date()) ) {
-          $('td', row).eq(2).html("Hoje");
+          $('td', row).eq(2).html("Hoje às " + $('td', row).eq(2).attr("rel"));
           $('td', row).eq(2).parent("tr").addClass("hoje");
       }
     }

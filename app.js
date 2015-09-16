@@ -148,21 +148,16 @@ function loadingTable(){
 
     for (var i=0; i < t; i++){
         var nome = cx_emails.email[i].nome;
-        var assunto = cx_emails.email[i].assunto;
-        //var data_envio = cx_emails.email[i].data_envio;
-      
-        // if (dateFormat(new Date(cx_emails.email[i].data_envio)) == dateFormat(new Date())){
-        //     var data_envio = hourFormat(new Date(cx_emails.email[i].data_envio));
-        // } else {
-            var data_envio = dateFormat(new Date(cx_emails.email[i].data_envio));
-            console.log(data_envio);
-        // }
-
+        var assunto = cx_emails.email[i].assunto;      
+        var data_envio = dateFormat(new Date(cx_emails.email[i].data_envio));
+        var hora_envio = "Às " + hourFormat(new Date(cx_emails.email[i].data_envio));        
+        
         var strHTML  = "<tr>" +
                      "<td>" + nome + "</td>"+
                      "<td>" + assunto + "</td>"+
-                     "<td>" + data_envio + "</td>"+
-                     "</tr>";     
+                     "<td rel=" + hourFormat(new Date(cx_emails.email[i].data_envio)) + ">" + data_envio + "</td>"+
+                     "<td>" + hora_envio + "</td>"+
+                     "</tr>";
         arrayEmails.push(strHTML);
     }  
     $("#table_email tbody").html(arrayEmails);;
@@ -182,7 +177,7 @@ function hourFormat(obj){
     var hora = obj.getHours() < 10 ? "0" + (obj.getHours()):obj.getHours();
     var minute = obj.getMinutes() < 10 ? "0" + (obj.getMinutes()):obj.getMinutes();
 
-    vHourFormat = "Hoje às " + hora + "h" + minute;
+    vHourFormat = hora + "h" + minute;
 
     return vHourFormat;
 }
